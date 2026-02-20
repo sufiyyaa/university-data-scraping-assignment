@@ -1,9 +1,5 @@
 import pandas as pd
-
-# -----------------------------
 # UNIVERSITY DATA (REAL DATA)
-# -----------------------------
-
 universities = [
     [1, "University of Oxford", "UK", "Oxford", "https://www.ox.ac.uk"],
     [2, "University of Cambridge", "UK", "Cambridge", "https://www.cam.ac.uk"],
@@ -11,11 +7,7 @@ universities = [
     [4, "Stanford University", "USA", "Stanford", "https://www.stanford.edu"],
     [5, "University of Toronto", "Canada", "Toronto", "https://www.utoronto.ca"]
 ]
-
-# -----------------------------
 # COURSE DATA (REAL COURSES)
-# -----------------------------
-
 courses = [
     # Oxford
     [1,1,"Computer Science","Bachelor","Engineering","3 years","Not specified","High school qualification"],
@@ -52,11 +44,7 @@ courses = [
     [24,5,"Civil Engineering","Bachelor","Engineering","4 years","Not specified","High school qualification"],
     [25,5,"Psychology","Bachelor","Arts","3 years","Not specified","High school qualification"]
 ]
-
-# -----------------------------
 # CREATE DATAFRAMES
-# -----------------------------
-
 uni_df = pd.DataFrame(universities, columns=[
     "university_id","university_name","country","city","website"
 ])
@@ -65,13 +53,10 @@ course_df = pd.DataFrame(courses, columns=[
     "course_id","university_id","course_name","level",
     "discipline","duration","fees","eligibility"
 ])
-
-# -----------------------------
 # EXPORT TO EXCEL
-# -----------------------------
-
 with pd.ExcelWriter("university_data.xlsx") as writer:
     uni_df.to_excel(writer, sheet_name="Universities", index=False)
     course_df.to_excel(writer, sheet_name="Courses", index=False)
+
 
 print("Excel file created successfully!")
